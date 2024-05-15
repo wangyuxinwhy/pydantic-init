@@ -1,0 +1,65 @@
+{
+    "$defs": {
+        "WeaponFromRole": {
+            "description": "Create a weapon based on the role.",
+            "properties": {
+                "from_method": {
+                    "default": "from_role",
+                    "title": "From Method",
+                    "type": "string"
+                },
+                "role": {
+                    "description": "The role of the hero. Only 'tank' is supported.",
+                    "title": "Role",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "role"
+            ],
+            "title": "WeaponFromRole",
+            "type": "object"
+        },
+        "WeaponInit": {
+            "properties": {
+                "name": {
+                    "title": "Name",
+                    "type": "string"
+                },
+                "damage": {
+                    "title": "Damage",
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "name",
+                "damage"
+            ],
+            "title": "WeaponInit",
+            "type": "object"
+        }
+    },
+    "properties": {
+        "name": {
+            "title": "Name",
+            "type": "string"
+        },
+        "weapon": {
+            "anyOf": [
+                {
+                    "$ref": "#/$defs/WeaponFromRole"
+                },
+                {
+                    "$ref": "#/$defs/WeaponInit"
+                }
+            ],
+            "title": "Weapon"
+        }
+    },
+    "required": [
+        "name",
+        "weapon"
+    ],
+    "title": "Hero",
+    "type": "object"
+}

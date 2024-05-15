@@ -1,0 +1,51 @@
+[tool.poetry]
+name = "pydantic-init"
+version = "0.1.0"
+description = "Through-Pydantic: Initialize Python Objects from JSON, YAML, and More"
+authors = ["wangyuxin <wangyuxin@mokahr.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{ include = "pydantic_init" }]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+pydantic = "^2.7.1"
+docstring-parser = "^0.16"
+
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.4.4"
+pytest = "^8.2.0"
+
+
+[tool.ruff]
+line-length = 128
+lint.select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort
+    "C",   # flake8-comprehensions
+    "B",   # flake8-bugbear
+    "N",
+    "SIM",
+    "ANN",
+    "A",
+    "T",
+    "PT",
+    "RET",
+    "TRY",
+]
+lint.ignore = [
+    "ANN1",    # self and cls
+    "ANN401",  # Dynamically typed expressions (typing.Any) are disallowed in
+    "TRY003",  # Avoid specifying long messages outside the exception class
+    "PLC0414", # reimport
+]
+exclude = ["playground", "api_docs"]
+target-version = "py38"
+format.quote-style = "single"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

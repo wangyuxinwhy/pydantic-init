@@ -1,0 +1,7 @@
+{
+    "$schema": "./hero.schema.json",
+    "name": "Superman",
+    "weapon": {
+        "role": "tank"
+    }
+}
